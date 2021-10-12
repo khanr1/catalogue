@@ -1,0 +1,20 @@
+@(categories: Seq[Category])(implicit  flash: Flash, request: RequestHeader, messagesProvider: MessagesProvider)
+
+
+
+@main("list category") {
+
+  <table class="table table-hover tableCRUD" data-list="@routes.CategoryController.listData">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Parent ID</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+}

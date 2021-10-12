@@ -1,0 +1,18 @@
+@**
+* Default field constructor.
+*
+* It generates field as following:
+* {{{
+    *<label for="name" class="form-label"> name </label>
+    *<input type="text" class="form-control" id="validationDefault01" value="Mark" required>
+* }}}
+*
+* @param el The field informations.
+*@
+
+@(elements: helper.FieldElements)
+<label for="@elements.id" class="form-label"> @elements.label </label>
+@elements.input
+<div class="valid-feedback">
+    Looks good!
+</div>

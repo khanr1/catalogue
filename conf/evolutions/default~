@@ -1,0 +1,6 @@
+
+-- !Ups
+create table "CATEGORY" ("ID" BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+"NAME" VARCHAR NOT NULL)
+
+-- !Downs

@@ -1,0 +1,20 @@
+@(categoryForm:Form[Category])(implicit  flash: Flash, request: RequestHeader, messagesProvider: MessagesProvider)
+
+@import helper._
+
+@import views.helper.bootstrap.bs._
+
+
+@main("list category"){
+    @helper.bootstrap.form(action=routes.CategoryController.saveCategory){
+        @CSRF.formField
+        <fieldset>
+        <legend> category form</legend>
+
+        @helper.bootstrap.inputText(categoryForm("name"),'required -> "")
+        @helper.bootstrap.inputText(categoryForm("parentCategory"))
+        </fieldset>
+        <button type="submit"> Submit </button>
+    }
+}
+

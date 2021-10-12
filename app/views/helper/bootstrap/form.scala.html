@@ -1,0 +1,41 @@
+@**
+ * Generate an HTML form.
+ *
+ * Example:
+ * {{{
+ * @form(action = routes.Users.submit, args = Symbol("class") -> "myForm") {
+ *   ...
+ * }
+ * }}}
+ *
+ * @param action The submit action.
+ * @param args Set of extra HTML attributes.
+ * @param body The form body.
+ *@
+@(action: play.api.mvc.Call, args: (Symbol,String)*)(body: => Html)
+<form class="needs-validation" novalidate action="@action.path" method="@action.method" @toHtmlArgs(args.toMap)>
+    @body
+</form>
+
+<script>
+ // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
